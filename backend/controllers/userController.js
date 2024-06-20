@@ -28,7 +28,7 @@ export const register = async(req,res)=>{
                 fullName,
                 username,
                 password : hashedPassword,
-                profilePhoto : gender==male?maleProfilePhoto:femaleProfilePhoto,
+                profilePhoto : gender=="male"?maleProfilePhoto:femaleProfilePhoto,
                 gender
             })
             return res.status(201).json({
@@ -41,7 +41,7 @@ export const register = async(req,res)=>{
 }
 
 // User Login 
-export const signin = async(req,res) => {
+export const login = async(req,res) => {
     try {
         const {username , password} = req.body;
         if(!username || !password){
@@ -69,7 +69,7 @@ export const signin = async(req,res) => {
             userId : user._id
         }
 
-        const token = await jwt.sign(tokenData , process.env.JWT, {expiresIn : '1d'});
+        const token = jwt.sign(tokenData , process.env.JWT, {expiresIn : '1d'});
 
         return res.status(200).cookie("token",token , {maxAge: 1 * 24 * 60 * 60 * 1000 , httpOnly:true , samesite:'strict'}).json({
 
@@ -81,5 +81,30 @@ export const signin = async(req,res) => {
 
     } catch (error) {
         console.log(error);
+    }
+}
+
+// User Logout 
+
+export const logout = async (req,res) => {
+    try {
+        return res.status(200).cookie("token" ,"",{maxAge:0}).json({
+            message : "User logged out successfully"
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const remainingUser = async(req,res) => {
+    try {
+        const loggedInUserId = req.id;
+        const otherUser  = await User.find({_id:{$ne : loggedInUserId}}).select("-password");
+        return res.status(400).json(otherUser);
+    } catch (error) {
+        console.log(error);
+        return res.status(400).json({
+            message : "Internal error server"
+        })
     }
 }

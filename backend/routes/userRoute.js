@@ -1,8 +1,12 @@
 import express from "express";
-import { register } from "../controllers/userController.js";
+import { logout, register, remainingUser, login } from "../controllers/userController.js";
+import { isAuthenticate } from "../middleware/isAuthenticate.js";
 
 const router = express.Router();
 
 router.route("/register").post(register);
+router.route("/login").get(login);
+router.route("/logout").delete(logout);
+router.route("/").get(isAuthenticate,remainingUser);
 
 export default router;
