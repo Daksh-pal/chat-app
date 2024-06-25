@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const [user, setUser] = useState({
@@ -10,20 +13,41 @@ export default function Register() {
     gender: "",
   });
 
+  const navigate = useNavigate();
+
   const handleCheckbox = (gender) => {
     setUser({ ...user, gender });
   };
 
-  const onSubmitHandle = (e) => {
+  const onSubmitHandle = async (e) => {
     e.preventDefault();
-    console.log(user);
+    try {
+      const res = await axios.post(
+        `http://localhost:8080/api/user/register`,
+        user,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+
+      if (res.data.success) {
+        navigate("/login");
+        toast.success(res.data.message);
+      }
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
     setUser({
       fullName: "",
       username: "",
       password: "",
       confirmPassword: "",
       gender: "",
-    })
+    });
   };
 
   return (

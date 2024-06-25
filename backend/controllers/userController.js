@@ -80,6 +80,7 @@ export const login = async(req,res) => {
         })
 
     } catch (error) {
+        console.log("Error in login")
         console.log(error);
     }
 }
