@@ -31,7 +31,7 @@ export const sendMessage = async(req,res) => {
             message : "Message sent"
         })
 
-        // Socket.IO 
+        
     } catch (error) {   
     }
 }
