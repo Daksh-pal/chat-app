@@ -51,9 +51,9 @@ export default function Register() {
   };
 
   return (
-    <div className="min-w-96 mx-auto text-black text-md">
+    <div className="min-w-96 mx-auto text-white text-md bg-violet-400  rounded-xl">
       <div className="p-6 max-w-sm  rounded-lg shadow-2xl h-full">
-        <h1 className="text-black font-bold text-3xl text-center">Register</h1>
+        <h1 className=" font-bold text-3xl text-center text-black">Register</h1>
         <form onSubmit={onSubmitHandle} action="">
           <div>
             <input
@@ -97,14 +97,14 @@ export default function Register() {
             />
 
             <div className="flex items-center my-4">
-              <p className="text-black">Male</p>
+              <p>Male</p>
               <input
                 type="checkbox"
                 className="checkbox bg-white mx-2"
                 checked={user.gender === "male"}
                 onChange={() => handleCheckbox("male")}
               />
-              <p className="text-black">Female</p>
+              <p >Female</p>
               <input
                 type="checkbox"
                 className="checkbox bg-white mx-2"
@@ -116,15 +116,15 @@ export default function Register() {
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="btn w-full text-white text-xl hover:bg-black bg-gray-800 my-1"
+                className="btn w-full my-1 text-white text-xl border-violet-400 border hover:bg-violet-700  bg-violet-500 "
               >
                 Register
               </button>
             </div>
 
-            <div className="flex my-2 justify-center">
+            <div className="flex my-2 justify-center text-violet-800">
               <p>Already have an account?</p>
-              <Link to="/login" className="text-black font-bold">
+              <Link to="/login" className="font-bold">
                 Login
               </Link>
             </div>

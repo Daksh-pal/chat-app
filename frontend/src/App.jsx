@@ -23,7 +23,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className='p-4 h-screen flex items-center justify-center bg-gradient-to-r from-cyan-600 to-blue-400'>
+    <div className='p-4 h-screen flex items-center justify-center bg-violet-300'>
       <RouterProvider router={router}/>
     </div>
   )
