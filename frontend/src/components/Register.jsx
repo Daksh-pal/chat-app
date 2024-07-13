@@ -51,7 +51,7 @@ export default function Register() {
   };
 
   return (
-    <div className="min-w-96 mx-auto text-white text-md bg-violet-400  rounded-xl">
+    <div className="min-w-96 mx-auto text-black text-md bg-violet-400  rounded-xl">
       <div className="p-6 max-w-sm  rounded-lg shadow-2xl h-full">
         <h1 className=" font-bold text-3xl text-center text-black">Register</h1>
         <form onSubmit={onSubmitHandle} action="">

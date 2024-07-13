@@ -103,15 +103,14 @@ export const logout = async (req, res) => {
 
 export const remainingUser = async (req, res) => {
   try {
-    const loggedInUserId = req.id;
-    const otherUser = await User.find({ _id: { $ne: loggedInUserId } }).select(
-      "-password"
-    );
-    return res.status(400).json(otherUser);
+    const loggedInUserId = req.id; // Ensure `req.id` is correctly populated
+    const otherUsers = await User.find({ _id: { $ne: loggedInUserId } }).select("-password");
+    return res.status(200).json(otherUsers); // Return 200 OK status
   } catch (error) {
     console.log(error);
-    return res.status(400).json({
-      message: "Internal error server",
+    return res.status(500).json({ // Return 500 Internal Server Error status
+      message: "Internal server error",
     });
   }
 };
+

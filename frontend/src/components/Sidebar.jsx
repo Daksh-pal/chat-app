@@ -15,7 +15,7 @@ const Sidebar = () => {
               </button>
           </form>
           
-          <hr class="border-b border-gray-500 mt-2 w-full"></hr>
+          <hr className="border-b border-gray-500 mt-2 w-full"></hr>
           <OtherUsers/>
           <div >
             <button className='p-2 rounded-lg bg-white text-black hover:bg-violet-500 hover:text-white'>Logout</button>
