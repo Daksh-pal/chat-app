@@ -28,7 +28,6 @@ const dispatch = useDispatch();
         }
       );
       navigate("/");
-      console.log(res.data);
       dispatch(setAuthUser(res.data));
       toast.success("Logged in successfully");
     } catch (error) {

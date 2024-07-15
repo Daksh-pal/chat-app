@@ -1,7 +1,7 @@
 import React from 'react'
 import proPic from "./proPic.jpg";
 
-function Message() {
+const Message = ({message}) => {
   return (
     <div>
         <div className="chat chat-start">
@@ -14,9 +14,8 @@ function Message() {
         </div>
 
 
-
         <div className="chat chat-end">
-            <div className="chat-bubble bg-violet-700 text-white">You underestimate my power!</div>
+            <div className="chat-bubble bg-violet-700 text-white">{message?.message}</div>
             <div className=''>
               <time className='text-xs opacity-50 text-black'> 12:45 </time>
             </div>
