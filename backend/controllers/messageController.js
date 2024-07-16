@@ -27,8 +27,8 @@ export const sendMessage = async(req,res) => {
         };
 
         await conversation.save();
-        return res.status(400).json({
-            message : "Message sent"
+        return res.status(201).json({
+            newMessage
         })
 
         
