@@ -6,7 +6,6 @@ import toast from 'react-hot-toast';
 import {useNavigate} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setOtherUsers } from '../redux/userSlice';
-import useGetOtherUsers from '../hooks/useGetOtherUsers';
 
 
 const Sidebar = () => {
