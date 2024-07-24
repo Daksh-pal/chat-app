@@ -9,7 +9,7 @@ useGetOtherUsers();
 
 
 const {otherUsers} = useSelector(store => store.user);
- if(!otherUsers) return; // early return
+ if(!otherUsers) return; 
 
   return (
         <div className='m-2 h-96 overflow-auto border-b-2 border-black rounded-lg'>

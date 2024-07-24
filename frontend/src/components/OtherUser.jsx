@@ -10,7 +10,6 @@ function OtherUser({user}) {
 
     const handleSelectedUser = (user) => {
         dispatch(setSelectedUser(user));
-
     }
 
   return (

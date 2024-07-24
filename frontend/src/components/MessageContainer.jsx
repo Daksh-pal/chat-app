@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 const MessageContainer = () => {
 
     const {selectedUser , authUser} = useSelector(store => store.user);
-    console.log(authUser);
     const dispatch = useDispatch()
 
     useEffect(()=>{
@@ -17,8 +16,8 @@ const MessageContainer = () => {
     if(!selectedUser){
         return(
             <div className='md:min-w-[550px] flex flex-col items-center justify-center'>
-                <h1 className='text-violet-800 font-bold text-2xl shadow-xl'>Hi, {authUser?.fullName} </h1>
-                <h1 className='text-violet-800 font-bold text-2xl shadow-xl'>Select an User to start Conversation</h1>
+                <h1 className='text-violet-800 text-2xl'>Hi, <span className='font-bold'>{authUser?.fullName}</span> </h1>
+                <h1 className='text-violet-800  text-2xl'>Select an User to start Conversation</h1>
             </div>
         )
     }
