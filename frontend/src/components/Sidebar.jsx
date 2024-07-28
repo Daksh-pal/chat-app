@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { IoSearchSharp } from "react-icons/io5";
 import OtherUsers from './OtherUsers';
 import axios from 'axios'
 import toast from 'react-hot-toast';
 import {useNavigate} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setOtherUsers } from '../redux/userSlice';
+import { setAuthUser, setOtherUsers } from '../redux/userSlice';
 
 
 const Sidebar = () => {
@@ -31,6 +31,7 @@ const Sidebar = () => {
       const res = await axios.delete(`http://localhost:8080/api/user/logout`);
       navigate('/login');
       toast.success(res.data.message);
+      dispatch(setAuthUser(null));
     } catch (error) {
       console.log(error);
     }
