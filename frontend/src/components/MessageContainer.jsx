@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import SendInput from './SendInput'
 import Messages from './Messages';
-import { setSelectedUser , setAuthUser  } from "../redux/userSlice";
+import { setSelectedUser } from "../redux/userSlice";
 import { useDispatch, useSelector } from 'react-redux';
 import male from '../images/male.jpg';
 import female from '../images/female.jpg';

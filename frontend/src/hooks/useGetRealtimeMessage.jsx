@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setMessages } from '../redux/messageSlice';
 
 const useGetRealtimeMessage = () => {
-    const {socket} = useSelector(store => store.user);
+    const {socket} = useSelector(store => store.socket);
     const {messages} = useSelector(store => store.message);
     const dispatch  = useDispatch();
 
@@ -11,7 +11,7 @@ const useGetRealtimeMessage = () => {
         socket?.on("newMessage" , (newMessage) => {
             dispatch(setMessages([...messages , newMessage]));
         });
-    },[socket , setMessages , messages])
+    },[setMessages , messages])
 }
 
 export default useGetRealtimeMessage;
