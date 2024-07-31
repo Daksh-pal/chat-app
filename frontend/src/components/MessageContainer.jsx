@@ -1,19 +1,13 @@
 import React, { useEffect } from 'react'
 import SendInput from './SendInput'
 import Messages from './Messages';
-import { setSelectedUser } from "../redux/userSlice";
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import male from '../images/male.jpg';
 import female from '../images/female.jpg';
 
 const MessageContainer = () => {
 
     const {selectedUser , authUser} = useSelector(store => store.user);
-    const dispatch = useDispatch()
-
-    useEffect(()=>{
-        return()=> dispatch(setSelectedUser(null))
-    },[])
 
     if(!selectedUser){
         return(
