@@ -8,7 +8,7 @@ const Messages = () => {
 
   useGetMessages();
   useGetRealtimeMessage();
-
+  
   const {messages} = useSelector(store => store.message);
   if(!messages) return;
 

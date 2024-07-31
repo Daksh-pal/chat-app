@@ -15,4 +15,3 @@ const useGetRealtimeMessage = () => {
 }
 
 export default useGetRealtimeMessage;
-

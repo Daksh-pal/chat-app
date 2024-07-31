@@ -1,3 +1,5 @@
 {
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "workbench.iconTheme": "fira-code-material-icon-theme",
+    "workbench.sideBar.location": "right"
 }

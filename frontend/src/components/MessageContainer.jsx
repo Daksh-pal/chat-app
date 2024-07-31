@@ -19,7 +19,7 @@ const MessageContainer = () => {
         return(
             <div className='md:min-w-[550px] flex flex-col items-center justify-center'>
                 <h1 className='text-violet-800 text-2xl'>Hi, <span className='font-bold'>{authUser?.fullName}</span> </h1>
-                <h1 className='text-violet-800  text-2xl'>Select an User to start Conversation</h1>
+                <h1 className='text-violet-800 text-2xl'>Select an User to start Conversation</h1>
             </div>
         )
     }
